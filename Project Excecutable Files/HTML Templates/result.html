@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Light gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+
+        /* Card styling */
+        .card {
+            background-color: #fff; /* White background for the card */
+            padding: 40px;
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            width: 60%;
+            height: 400px; /* Card width */
+            max-width: 500px; /* Maximum width */
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+
+        h1 {
+            font-size: 2rem; /* Heading font size */
+            margin-bottom: 20px;
+            color: #0def20; /* Dark gray for text */
+            padding: 25px;
+        }
+
+        p {
+            font-size: 1.2rem; /* Paragraph font size */
+            margin-bottom: 20px;
+            padding: 25px;
+            color: rgba(19, 11, 240, 0.896)
+        }
+
+        /* Specific colors for content */
+        .prediction {
+            color: #32cd32; /* Green color for prediction result */
+        }
+
+        .ham {
+            color: #007bff; /* Blue color for Ham */
+        }
+
+        .quote {
+            font-style: italic; /* Italic style for quotes */
+            color: #e74c3c; /* Red color for quotes */
+            padding: 25px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Card container -->
+    <div class="card">
+        <h1>Prediction Result</h1>
+        {% if prediction == 0 %}
+            <p class="prediction ham">The message is <strong>Ham</strong>.</p>
+            <p class="quote">"Not all messages are spam. Some are just good old-fashioned communication!"</p>
+        {% else %}
+            <p class="prediction">The message is <strong>Spam</strong>.</p>
+            <p class="quote">"Spam can be dangerous—always think twice before clicking!"</p>
+        {% endif %}
+    </div>
+</body>
+</html>
